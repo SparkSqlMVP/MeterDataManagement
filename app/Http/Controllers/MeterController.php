@@ -14,7 +14,9 @@ class MeterController extends Controller
     public function Index()
     {
         # code...
-        $MeterData = DB::table('gasdevice_model750_rundata')->get();
-        return  $MeterData;
+        $data = DB::table('gasdevice_model750_rundata')
+               // ->orderBy('id', 'desc')
+                ->get();
+        return view('meter/index')->withData($data);
     }
 }
